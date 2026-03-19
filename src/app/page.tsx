@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import GradientBlobs from '@/components/GradientBlobs'
 import Cursor from '@/components/ui/Cursor'
 import TopProgressBar from '@/components/ui/TopProgressBar'
+import EasterEgg from '@/components/EasterEgg'
 import ScrollControllerLoader from '@/components/ScrollControllerLoader'
 import LeftPanelLoader from '@/components/LeftPanelLoader'
 import About from '@/components/sections/About'
@@ -17,6 +18,7 @@ export default function Home() {
       <TopProgressBar />
       <GradientBlobs />
       <Navbar />
+      <EasterEgg />
 
       <div className="flex h-full w-full">
         {/* Fixed left panel — hidden on mobile */}
