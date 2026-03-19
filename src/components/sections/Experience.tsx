@@ -1,6 +1,5 @@
 'use client'
 
-import FloatingCard from '../ui/FloatingCard'
 import { SectionAnimate, sectionItem } from '../ui/SectionAnimate'
 import { motion } from 'framer-motion'
 
@@ -57,7 +56,7 @@ export default function Experience() {
         <div className="flex flex-col gap-3 mt-4 max-h-[68vh] overflow-y-auto [&::-webkit-scrollbar]:hidden">
           {experiences.map((exp) => (
             <motion.div key={exp.company} variants={sectionItem}>
-              <FloatingCard intensity={8} className="glass-card rounded-2xl flex-shrink-0">
+              <div className="glass-card rounded-2xl flex-shrink-0">
                 <div className="flex items-stretch">
                   <div className={`w-1.5 rounded-l-2xl flex-shrink-0 bg-gradient-to-b ${exp.gradient}`} />
                   <div className="p-4 flex-1">
@@ -78,7 +77,7 @@ export default function Experience() {
                     <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1.5 leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
-              </FloatingCard>
+              </div>
             </motion.div>
           ))}
         </div>

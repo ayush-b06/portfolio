@@ -93,12 +93,13 @@ export default function About() {
             animate={{ opacity: bioDone ? 1 : 0, y: bioDone ? 0 : 8 }}
             transition={{ duration: 0.35, delay: i * 0.04, ease: 'easeOut' }}
             whileHover={{ y: -3, transition: { duration: 0.15 } }}
-            className="text-xs font-semibold text-[#374151] dark:text-white/80 px-3 py-1.5 rounded-full"
+            className="text-xs font-semibold px-3 py-1.5 rounded-full"
             style={{
-              background: 'rgba(255,255,255,0.75)',
-              border: '1px solid rgba(124,58,237,0.12)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
+              background: 'var(--skill-bg)',
+              border: '1px solid var(--skill-border)',
+              boxShadow: 'var(--skill-shadow)',
               backdropFilter: 'blur(8px)',
+              color: 'var(--text-primary)',
             }}
           >
             {skill}
@@ -115,7 +116,7 @@ export default function About() {
         <button
           onClick={() => goTo(2)}
           className="group relative flex items-center gap-2.5 px-6 py-3 text-sm font-bold rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
-          style={{ background: '#1A1A1A', color: '#fff', boxShadow: '0 4px 16px rgba(0,0,0,0.15)' }}
+          style={{ background: 'var(--text-primary)', color: 'var(--surface)', boxShadow: '0 4px 16px rgba(0,0,0,0.15)' }}
         >
           <span className="relative z-10 flex items-center gap-2.5">
             View my work
@@ -127,7 +128,7 @@ export default function About() {
         <button
           onClick={() => goTo(4)}
           className="group flex items-center gap-2 px-6 py-3 font-semibold rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5"
-          style={{ color: '#1A1A1A', background: 'transparent', border: '1.5px solid rgba(0,0,0,0.15)' }}
+          style={{ color: 'var(--text-primary)', background: 'transparent', border: '1.5px solid var(--btn-border)' }}
         >
           <Mail size={14} className="text-[#F9A8D4]" />
           Contact me

@@ -59,17 +59,17 @@ export default function FloatingCard({ children, className = '', intensity = 22,
         ...style,
         transform: `perspective(700px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(${hovered ? 16 : 0}px)`,
         boxShadow: hovered
-          ? `${-tilt.y * 0.8}px ${tilt.x * 0.8 + 16}px 40px rgba(96, 165, 250, 0.2)`
+          ? `${-tilt.y * 0.8}px ${tilt.x * 0.8 + 16}px 40px var(--hover-glow)`
           : (style?.boxShadow ?? '0 4px 20px rgba(0,0,0,0.06)'),
         transition: 'transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.25s cubic-bezier(0.23, 1, 0.32, 1)',
         transformStyle: 'preserve-3d',
       }}
       className={`relative overflow-hidden ${className}`}
     >
-      {/* Shine */}
+      {/* Shine — light mode only */}
       {hovered && (
         <div
-          className="absolute inset-0 pointer-events-none z-10"
+          className="absolute inset-0 pointer-events-none z-10 dark:hidden"
           style={{
             background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255,255,255,0.22) 0%, transparent 65%)`,
           }}

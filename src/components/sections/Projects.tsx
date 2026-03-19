@@ -53,25 +53,25 @@ export default function Projects() {
       <motion.div variants={sectionItem} className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 max-h-[65vh] md:max-h-[52vh] overflow-y-auto md:overflow-visible [&::-webkit-scrollbar]:hidden">
         {projects.map((p) => (
           <FloatingCard key={p.name} intensity={8} className="rounded-2xl flex flex-col h-full" style={{
-            background: 'rgba(255,255,255,0.58)',
+            background: 'var(--card-bg)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.45)',
-            boxShadow: '0 12px 40px rgba(124,58,237,0.18), 0 4px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.7)',
+            border: '1px solid var(--card-border)',
+            boxShadow: 'var(--card-shadow)',
           }}>
-            <div className={`h-1.5 w-full bg-gradient-to-r ${p.gradient} rounded-t-2xl flex-shrink-0`} />
-            <div className="p-4 flex flex-col flex-1">
-              <h3 className="font-bold text-[15px] text-[#1A1A1A] dark:text-white leading-tight mb-1.5">{p.name}</h3>
+            <div className={`h-1 md:h-1.5 w-full bg-gradient-to-r ${p.gradient} rounded-t-2xl flex-shrink-0`} />
+            <div className="p-3 md:p-4 flex flex-col flex-1">
+              <h3 className="font-bold text-[13px] md:text-[15px] text-[#1A1A1A] dark:text-white leading-tight mb-1 md:mb-1.5">{p.name}</h3>
 
-              <p className="text-[12.5px] text-[#6B7280] dark:text-gray-400 leading-relaxed flex-1 mb-3 whitespace-pre-line">
+              <p className="text-[11.5px] md:text-[12.5px] text-[#6B7280] dark:text-gray-400 leading-relaxed flex-1 mb-2 md:mb-3 whitespace-pre-line">
                 {p.description}
               </p>
 
               <div className="flex items-end justify-between gap-1.5">
                 <div className="flex gap-1.5 flex-wrap">
                   {p.stack.map(t => (
-                    <span key={t} className="text-[11px] font-semibold text-[#1A1A1A] px-2.5 py-1 rounded-lg"
-                      style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.35)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                    <span key={t} className="text-[10px] md:text-[11px] font-semibold px-2 md:px-2.5 py-0.5 md:py-1 rounded-lg"
+                      style={{ background: 'var(--tag-bg)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid var(--tag-border)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', color: 'var(--text-primary)' }}>
                       {t}
                     </span>
                   ))}
@@ -83,8 +83,8 @@ export default function Projects() {
                       <a href={p.github} target="_blank" rel="noopener noreferrer"
                         onClick={e => e.stopPropagation()}
                         title="GitHub"
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[#374151] transition-all duration-200 hover:-translate-y-0.5"
-                        style={{ background: 'white', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.07)' }}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                        style={{ background: 'var(--pill-bg)', border: '1px solid var(--pill-border)', boxShadow: 'var(--pill-shadow)', color: 'var(--text-primary)' }}
                       >
                         <GitBranch size={11} className="text-[#93C5FD]" />
                         <span className="text-[11px] font-semibold">Code</span>
@@ -94,8 +94,8 @@ export default function Projects() {
                       <a href={p.live} target="_blank" rel="noopener noreferrer"
                         onClick={e => e.stopPropagation()}
                         title="Live site"
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[#374151] transition-all duration-200 hover:-translate-y-0.5"
-                        style={{ background: 'white', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.07)' }}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                        style={{ background: 'var(--pill-bg)', border: '1px solid var(--pill-border)', boxShadow: 'var(--pill-shadow)', color: 'var(--text-primary)' }}
                       >
                         <ExternalLink size={11} className="text-[#F9A8D4]" />
                         <span className="text-[11px] font-semibold">Live</span>

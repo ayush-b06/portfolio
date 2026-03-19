@@ -18,7 +18,7 @@ export default function Contact() {
           <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-2">
             Get in Touch
           </p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A] dark:text-white tracking-tight mb-3">
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3" style={{ color: 'var(--text-primary)' }}>
             Let&apos;s build something.
           </h2>
           <p className="text-sm text-[#6B7280] dark:text-gray-400 max-w-full md:max-w-xs leading-relaxed mb-5">
@@ -37,9 +37,9 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group flex items-center justify-between p-4 rounded-2xl transition-all duration-200 hover:scale-[0.97] active:scale-95"
               style={{
-                background: 'rgba(255,255,255,0.72)',
-                border: '1px solid rgba(255,255,255,0.6)',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9)',
+                background: 'var(--social-bg)',
+                border: '1px solid var(--social-border)',
+                boxShadow: 'var(--social-shadow)',
                 backdropFilter: 'blur(14px)',
               }}
             >

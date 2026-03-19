@@ -52,7 +52,7 @@ export default function GradientBlobs() {
   }, [])
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-100 dark:opacity-40">
       <div ref={containerRef} className="absolute inset-0" style={{ willChange: 'transform' }}>
         {/* Large purple-blue glow — left, behind celsius */}
         <div style={{

@@ -5,6 +5,59 @@
 /* Dark mode via .dark class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ─── Dark-mode-aware CSS variables ───────────────────── */
+:root {
+  --hover-glow: rgba(96,165,250,0.2);
+  --surface:         rgba(255,255,255,0.72);
+  --surface-border:  rgba(255,255,255,0.6);
+  --surface-shadow:  0 8px 32px rgba(124,58,237,0.08), 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.04);
+  --card-bg:         rgba(255,255,255,0.58);
+  --card-border:     rgba(255,255,255,0.45);
+  --card-shadow:     0 12px 40px rgba(124,58,237,0.18), 0 4px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.7);
+  --social-bg:       rgba(255,255,255,0.72);
+  --social-border:   rgba(255,255,255,0.6);
+  --social-shadow:   0 2px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+  --pill-bg:         white;
+  --pill-border:     rgba(0,0,0,0.08);
+  --pill-shadow:     0 1px 4px rgba(0,0,0,0.07);
+  --tag-bg:          rgba(255,255,255,0.12);
+  --tag-border:      rgba(255,255,255,0.35);
+  --skill-bg:        rgba(255,255,255,0.75);
+  --skill-border:    rgba(124,58,237,0.12);
+  --skill-shadow:    0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+  --text-primary:    #1A1A1A;
+  --text-muted:      #6B7280;
+  --btn-border:      rgba(0,0,0,0.15);
+  --divider:         rgba(0,0,0,0.05);
+  --mobile-menu-bg:  rgba(255,255,255,0.88);
+}
+
+.dark {
+  --hover-glow: transparent;
+  --surface:         rgba(18,20,34,0.88);
+  --surface-border:  rgba(255,255,255,0.09);
+  --surface-shadow:  0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.2);
+  --card-bg:         rgba(255,255,255,0.05);
+  --card-border:     rgba(255,255,255,0.09);
+  --card-shadow:     0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.07);
+  --social-bg:       rgba(255,255,255,0.05);
+  --social-border:   rgba(255,255,255,0.09);
+  --social-shadow:   0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  --pill-bg:         rgba(255,255,255,0.08);
+  --pill-border:     rgba(255,255,255,0.1);
+  --pill-shadow:     0 1px 4px rgba(0,0,0,0.3);
+  --tag-bg:          rgba(255,255,255,0.07);
+  --tag-border:      rgba(255,255,255,0.12);
+  --skill-bg:        rgba(255,255,255,0.07);
+  --skill-border:    rgba(147,197,253,0.18);
+  --skill-shadow:    0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06);
+  --text-primary:    #F1F5F9;
+  --text-muted:      #94A3B8;
+  --btn-border:      rgba(255,255,255,0.18);
+  --divider:         rgba(255,255,255,0.07);
+  --mobile-menu-bg:  rgba(15,17,28,0.96);
+}
+
 /* ─── Theme tokens ─────────────────────────────────────── */
 @theme {
   --color-background: #FAFAFA;
@@ -66,16 +119,26 @@ body {
 }
 
 .dark body {
-  background-color: #0A0A1A;
-  color: #F8F8FF;
+  background-color: #111318;
+  color: #F1F5F9;
+}
+
+/* Reduce card shadow on mobile */
+@media (max-width: 767px) {
+  :root {
+    --card-shadow: 0 4px 12px rgba(124,58,237,0.08), 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .dark {
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.12);
+  }
 }
 
 .dark .glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(124, 58, 237, 0.04) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(147,197,253,0.03) 100%);
+  border: 1px solid rgba(255,255,255,0.09);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
 /* Grain texture overlay */
