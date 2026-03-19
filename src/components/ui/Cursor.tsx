@@ -52,7 +52,7 @@ export default function Cursor() {
             width: hovered ? 36 : clicked ? 16 : 24,
             height: hovered ? 36 : clicked ? 16 : 24,
             borderRadius: hovered ? '6px' : '4px',
-            border: `1.5px solid ${hovered ? '#7C3AED' : 'var(--cursor-color, #1A1A1A)'}`,
+            border: `1.5px solid ${hovered ? '#60A5FA' : 'var(--cursor-color, #1A1A1A)'}`,
             opacity: hovered ? 0.7 : clicked ? 0.9 : 0.5,
             background: hovered ? 'rgba(124,58,237,0.06)' : 'transparent',
             transition: 'width 0.2s cubic-bezier(0.23,1,0.32,1), height 0.2s cubic-bezier(0.23,1,0.32,1), border-radius 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, background 0.2s ease',

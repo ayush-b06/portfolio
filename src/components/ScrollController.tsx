@@ -5,9 +5,10 @@ import { motion, useMotionValue, animate } from 'framer-motion'
 import scrollState from '@/lib/scrollState'
 import mouseState from '@/lib/mouseState'
 import { registerGoTo } from '@/lib/navigation'
+import { setSectionIndex } from '@/lib/sectionState'
 
 const PANELS = 5       // About, Berkeley, Projects, Experience, Contact
-const THRESHOLD = 500
+const THRESHOLD = 320
 const MAX_DRAG = 55
 
 export default function ScrollController({ children }: { children: ReactNode }) {
@@ -32,6 +33,7 @@ export default function ScrollController({ children }: { children: ReactNode }) 
     accumRef.current = 0
     scrollState.progress = 0
     scrollState.direction = 0
+    setSectionIndex(idx)
     animate(yMotion, -idx * window.innerHeight, {
       type: 'spring', stiffness: 280, damping: 32,
       onComplete: () => { locked.current = false },
@@ -44,11 +46,14 @@ export default function ScrollController({ children }: { children: ReactNode }) 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
       if (locked.current) return
+      const dir = e.deltaY > 0 ? 1 : -1
+      // Block scrolling past first or last section
+      if (dir === -1 && currentIdx.current === 0) return
+      if (dir === 1 && currentIdx.current === PANELS - 1) return
       accumRef.current += e.deltaY
-      const dir = accumRef.current > 0 ? 1 : -1
       const progress = Math.min(Math.abs(accumRef.current) / THRESHOLD, 1)
       scrollState.progress = progress
-      scrollState.direction = dir
+      scrollState.direction = accumRef.current > 0 ? 1 : -1
       const drag = -(accumRef.current / THRESHOLD) * MAX_DRAG
       yMotion.set(-currentIdx.current * window.innerHeight + Math.max(-MAX_DRAG, Math.min(MAX_DRAG, drag)))
       if (Math.abs(accumRef.current) >= THRESHOLD) goTo(currentIdx.current + dir)

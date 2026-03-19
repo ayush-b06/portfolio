@@ -23,7 +23,7 @@ export default function ThemeToggle() {
       {theme === 'dark' ? (
         <Sun size={16} className="text-[#A78BFA]" />
       ) : (
-        <Moon size={16} className="text-[#7C3AED]" />
+        <Moon size={16} className="text-[#60A5FA]" />
       )}
     </motion.button>
   )

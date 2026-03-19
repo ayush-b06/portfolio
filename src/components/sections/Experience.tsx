@@ -1,39 +1,41 @@
 'use client'
 
 import FloatingCard from '../ui/FloatingCard'
+import { SectionAnimate, sectionItem } from '../ui/SectionAnimate'
+import { motion } from 'framer-motion'
 
 const experiences = [
   {
-    role: 'Software Development Engineer Intern',
+    role: 'SDE Intern',
     company: 'Amazon',
     period: 'Summer 2026',
     note: 'Incoming',
-    description: "Joining the Stores team in Seattle. Building at scale on one of the world's largest e-commerce platforms.",
+    description: 'Stores team, Seattle. Building at scale on the world\'s largest e-commerce platform.',
     gradient: 'from-[#60A5FA] to-[#818CF8]',
     color: '#60A5FA',
   },
   {
     role: 'AI Engineer',
     company: 'Handshake',
-    period: '2024 – 2025',
-    note: 'Contractor',
-    description: 'Led LLM evaluation pipelines and prompt engineering to improve career-matching recommendation quality.',
+    period: '2025 – Present',
+    note: 'Contract',
+    description: 'Evaluating LLM performance across production codebases — Azure SDK, Google Cloud SDK, Svelte. 70+ engineering tasks weekly exposing model hallucinations.',
     gradient: 'from-[#A78BFA] to-[#7C3AED]',
     color: '#A78BFA',
   },
   {
-    role: 'Technology Analyst',
+    role: 'Technology Intern',
     company: 'Accenture',
-    period: '2024',
-    description: 'Contributed to enterprise-scale digital transformation projects with cross-functional teams.',
+    period: 'Summer 2024',
+    description: 'Built automated Python pipelines for web accessibility on high-traffic sites like Walmart. Cut manual review time by 40% with AI-driven semantic tagging.',
     gradient: 'from-[#7C3AED] to-[#60A5FA]',
     color: '#7C3AED',
   },
   {
-    role: 'Software Engineer',
+    role: 'Software Engineer Intern',
     company: 'Project Empower',
-    period: '2023 – 2024',
-    description: 'Built tools to help underserved communities access educational and economic opportunities.',
+    period: '2024',
+    description: 'Built an internal coordination tool with Next.js, TypeScript, and Firebase. Implemented real-time updates and custom role logic with the founding engineers.',
     gradient: 'from-[#818CF8] to-[#F0ABFC]',
     color: '#818CF8',
   },
@@ -41,42 +43,46 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="h-screen flex flex-col justify-center px-10 pt-16 pb-8">
-      <div className="mb-5">
-        <p className="text-xs font-semibold text-[#7C3AED] dark:text-[#A78BFA] tracking-widest uppercase mb-1">
-          Where I&apos;ve Been
-        </p>
-        <h2 className="text-4xl font-black text-[#1A1A1A] dark:text-white tracking-tight">
-          Experience
-        </h2>
-      </div>
+    <section className="h-screen flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
+      <SectionAnimate index={3}>
+        <motion.div variants={sectionItem} className="mb-0">
+          <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-1">
+            Where I&apos;ve Been
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A] dark:text-white tracking-tight">
+            Experience
+          </h2>
+        </motion.div>
 
-      <div className="flex flex-col gap-3 flex-1 justify-center max-h-[68vh]">
-        {experiences.map((exp) => (
-          <FloatingCard key={exp.company} className="glass-card rounded-2xl flex-shrink-0">
-            <div className="flex items-stretch">
-              <div className={`w-1.5 rounded-l-2xl flex-shrink-0 bg-gradient-to-b ${exp.gradient}`} />
-              <div className="p-4 flex-1">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <h3 className="font-bold text-sm text-[#1A1A1A] dark:text-white leading-tight">{exp.role}</h3>
-                    <p className="text-xs font-semibold mt-0.5 text-[#7C3AED] dark:text-[#A78BFA]">{exp.company}</p>
-                  </div>
-                  <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className="text-xs text-[#6B7280] dark:text-gray-500">{exp.period}</span>
-                    {exp.note && (
-                      <span className="text-[10px] font-semibold text-[#7C3AED] bg-[#7C3AED]/10 dark:text-[#A78BFA] dark:bg-[#A78BFA]/15 px-2 py-0.5 rounded-full">
-                        {exp.note}
-                      </span>
-                    )}
+        <div className="flex flex-col gap-3 mt-4 max-h-[68vh] overflow-y-auto [&::-webkit-scrollbar]:hidden">
+          {experiences.map((exp) => (
+            <motion.div key={exp.company} variants={sectionItem}>
+              <FloatingCard intensity={8} className="glass-card rounded-2xl flex-shrink-0">
+                <div className="flex items-stretch">
+                  <div className={`w-1.5 rounded-l-2xl flex-shrink-0 bg-gradient-to-b ${exp.gradient}`} />
+                  <div className="p-4 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <h3 className="font-bold text-sm text-[#1A1A1A] dark:text-white leading-tight">{exp.role}</h3>
+                        <p className="text-xs font-semibold mt-0.5 text-[#F9A8D4] dark:text-[#F0ABFC]">{exp.company}</p>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <span className="text-xs text-[#6B7280] dark:text-gray-500">{exp.period}</span>
+                        {exp.note && (
+                          <span className="text-[10px] font-semibold text-[#F9A8D4] bg-[#F9A8D4]/10 dark:text-[#F0ABFC] dark:bg-[#F0ABFC]/15 px-2 py-0.5 rounded-full">
+                            {exp.note}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1.5 leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
-                <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1.5 leading-relaxed">{exp.description}</p>
-              </div>
-            </div>
-          </FloatingCard>
-        ))}
-      </div>
+              </FloatingCard>
+            </motion.div>
+          ))}
+        </div>
+      </SectionAnimate>
     </section>
   )
 }
