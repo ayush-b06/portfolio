@@ -9,6 +9,7 @@ import About from '@/components/sections/About'
 import Berkeley from '@/components/sections/Berkeley'
 import Projects from '@/components/sections/Projects'
 import Experience from '@/components/sections/Experience'
+import Currently from '@/components/sections/Currently'
 import Contact from '@/components/sections/Contact'
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
         <div className="w-full md:w-[62%] h-full flex-shrink-0 overflow-hidden">
           <ScrollControllerLoader>
             <About />
+            <Currently />
             <Berkeley />
             <Projects />
             <Experience />

@@ -13,17 +13,15 @@ const socialLinks = [
 export default function Contact() {
   return (
     <section className="h-screen flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
-      <SectionAnimate index={4}>
+      <SectionAnimate index={5}>
         <motion.div variants={sectionItem}>
           <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-2">
             Get in Touch
           </p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3" style={{ color: 'var(--text-primary)' }}>
-            Let&apos;s build something.
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-5" style={{ color: 'var(--text-primary)' }}>
+            Let&apos;s connect.
           </h2>
-          <p className="text-sm text-[#6B7280] dark:text-gray-400 max-w-full md:max-w-xs leading-relaxed mb-5">
-            Whether you have a project, a role to fill, or just want to talk tech — I&apos;m always up for a good conversation.
-          </p>
+
         </motion.div>
 
         {/* Social cards */}

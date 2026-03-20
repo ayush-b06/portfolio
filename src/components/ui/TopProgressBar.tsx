@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { onSectionChange, getSectionIndex } from '@/lib/sectionState'
 
-const TOTAL = 5
+const TOTAL = 6
 
 export default function TopProgressBar() {
   const [active, setActive] = useState(getSectionIndex())

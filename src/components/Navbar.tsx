@@ -8,10 +8,13 @@ import { onSectionChange, getSectionIndex } from '@/lib/sectionState'
 import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
-  const [active, setActive] = useState(getSectionIndex())
+  const [active, setActive] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
 
-  useEffect(() => onSectionChange(setActive), [])
+  useEffect(() => {
+    setActive(getSectionIndex())
+    return onSectionChange(setActive)
+  }, [])
 
   const handleNav = (idx: number) => {
     goTo(idx)

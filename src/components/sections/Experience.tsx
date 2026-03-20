@@ -14,10 +14,9 @@ const experiences = [
     color: '#60A5FA',
   },
   {
-    role: 'AI Engineer',
+    role: 'AI Engineer (Contract)',
     company: 'Handshake',
-    period: '2025 – Present',
-    note: 'Contract',
+    period: 'Spring 2026',
     description: 'Evaluating LLM performance across production codebases — Azure SDK, Google Cloud SDK, Svelte. 70+ engineering tasks weekly exposing model hallucinations.',
     gradient: 'from-[#A78BFA] to-[#7C3AED]',
     color: '#A78BFA',
@@ -33,7 +32,7 @@ const experiences = [
   {
     role: 'Software Engineer Intern',
     company: 'Project Empower',
-    period: '2024',
+    period: 'Spring 2024',
     description: 'Built an internal coordination tool with Next.js, TypeScript, and Firebase. Implemented real-time updates and custom role logic with the founding engineers.',
     gradient: 'from-[#818CF8] to-[#F0ABFC]',
     color: '#818CF8',
@@ -43,7 +42,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section className="h-screen flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
-      <SectionAnimate index={3}>
+      <SectionAnimate index={4}>
         <motion.div variants={sectionItem} className="mb-0">
           <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-1">
             Where I&apos;ve Been

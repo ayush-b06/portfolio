@@ -6,10 +6,11 @@ import { onSectionChange, getSectionIndex } from '@/lib/sectionState'
 // Each section shifts the background to a different position
 const POSITIONS = [
   { x: 0,   y: 0   },   // 0 About
-  { x: 40,  y: -60 },   // 1 Berkeley
-  { x: -50, y: -120 },  // 2 Projects
-  { x: 30,  y: -180 },  // 3 Experience
-  { x: -30, y: -240 },  // 4 Contact
+  { x: 20,  y: -40 },   // 1 Currently
+  { x: 40,  y: -80 },   // 2 Berkeley
+  { x: -50, y: -140 },  // 3 Projects
+  { x: 30,  y: -200 },  // 4 Experience
+  { x: -30, y: -260 },  // 5 Contact
 ]
 
 export default function GradientBlobs() {

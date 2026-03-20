@@ -7,7 +7,7 @@ import mouseState from '@/lib/mouseState'
 import { registerGoTo } from '@/lib/navigation'
 import { setSectionIndex } from '@/lib/sectionState'
 
-const PANELS = 5       // About, Berkeley, Projects, Experience, Contact
+const PANELS = 6       // About, Currently, Berkeley, Projects, Experience, Contact
 const THRESHOLD = 320
 const MAX_DRAG = 55
 

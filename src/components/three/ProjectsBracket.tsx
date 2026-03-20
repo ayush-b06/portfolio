@@ -79,18 +79,20 @@ useGLTF.preload('/celsius-energy-drink/source/celsius.glb')
 export default function ProjectsBracket() {
   const [mounted, setMounted] = useState(false)
   const [clickCount, setClickCount] = useState(0)
+  const clickRef = useRef(0)
 
   useEffect(() => setMounted(true), [])
 
   const handleCanvasClick = () => {
-    setClickCount(prev => {
-      const next = prev + 1
-      if (next >= CLICK_TARGET) {
-        triggerEasterEgg()
-        return 0 // reset
-      }
-      return next
-    })
+    clickRef.current += 1
+    const next = clickRef.current
+    if (next >= CLICK_TARGET) {
+      clickRef.current = 0
+      setClickCount(0)
+      triggerEasterEgg() // called in event handler — safe, not during render
+    } else {
+      setClickCount(next)
+    }
   }
 
   if (!mounted) return null
@@ -108,27 +110,6 @@ export default function ProjectsBracket() {
         </Suspense>
       </Canvas>
 
-      {/* Hint — shown before first click */}
-      <AnimatePresence>
-        {clickCount === 0 && (
-          <motion.div
-            className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-1 pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ delay: 2.5, duration: 0.6 }}
-          >
-            <motion.div
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              className="text-[10px] font-semibold tracking-widest uppercase"
-              style={{ color: '#F9A8D4', opacity: 0.7 }}
-            >
-              ↑ click me
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Click progress dots — shown after first click */}
       <AnimatePresence>
