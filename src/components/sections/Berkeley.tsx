@@ -20,7 +20,7 @@ const stats = [
 
 export default function Berkeley() {
   return (
-    <section className="h-screen flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
+    <section className="h-screen flex flex-col justify-start md:justify-center px-6 md:px-10 pt-20 md:pt-16 pb-8 overflow-y-auto md:overflow-y-visible [&::-webkit-scrollbar]:hidden">
       <SectionAnimate index={2}>
         <motion.div variants={sectionItem} className="mb-5">
           <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-1">
