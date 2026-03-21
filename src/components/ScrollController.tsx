@@ -40,6 +40,9 @@ export default function ScrollController({ children }: { children: ReactNode }) 
     })
   }
 
+  const touchStartY = useRef(0)
+  const touchStartX = useRef(0)
+
   useEffect(() => {
     registerGoTo(goTo)
 
@@ -47,7 +50,6 @@ export default function ScrollController({ children }: { children: ReactNode }) 
       e.preventDefault()
       if (locked.current) return
       const dir = e.deltaY > 0 ? 1 : -1
-      // Block scrolling past first or last section
       if (dir === -1 && currentIdx.current === 0) return
       if (dir === 1 && currentIdx.current === PANELS - 1) return
       accumRef.current += e.deltaY
@@ -57,6 +59,20 @@ export default function ScrollController({ children }: { children: ReactNode }) 
       const drag = -(accumRef.current / THRESHOLD) * MAX_DRAG
       yMotion.set(-currentIdx.current * window.innerHeight + Math.max(-MAX_DRAG, Math.min(MAX_DRAG, drag)))
       if (Math.abs(accumRef.current) >= THRESHOLD) goTo(currentIdx.current + dir)
+    }
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY
+      touchStartX.current = e.touches[0].clientX
+    }
+
+    const onTouchEnd = (e: TouchEvent) => {
+      if (locked.current) return
+      const dy = touchStartY.current - e.changedTouches[0].clientY
+      const dx = touchStartX.current - e.changedTouches[0].clientX
+      // Only trigger on predominantly vertical swipes of 50px+
+      if (Math.abs(dy) < 50 || Math.abs(dy) < Math.abs(dx)) return
+      goTo(currentIdx.current + (dy > 0 ? 1 : -1))
     }
 
     const onMouseMove = (e: MouseEvent) => {
@@ -76,11 +92,15 @@ export default function ScrollController({ children }: { children: ReactNode }) 
     const onResize = () => yMotion.set(-currentIdx.current * window.innerHeight)
 
     window.addEventListener('wheel', onWheel, { passive: false })
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
     window.addEventListener('mousemove', onMouseMove, { passive: true })
     window.addEventListener('keydown', onKeyDown)
     window.addEventListener('resize', onResize)
     return () => {
       window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchend', onTouchEnd)
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('keydown', onKeyDown)
       window.removeEventListener('resize', onResize)
