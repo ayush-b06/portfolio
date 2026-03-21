@@ -56,7 +56,7 @@ export default function About() {
   }, [nameDone])
 
   return (
-    <section className="relative h-screen flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
+    <section className="relative h-[100dvh] flex flex-col justify-center px-6 md:px-10 pt-16 pb-8">
       <motion.p
         className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-3"
         initial={{ opacity: 0, y: 10 }}

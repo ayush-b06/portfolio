@@ -114,7 +114,7 @@ export default function Currently() {
   if (!loading && !track) return null
 
   return (
-    <section className="h-screen flex flex-col justify-start md:justify-center px-6 md:px-10 pt-20 md:pt-16 pb-8 overflow-y-auto md:overflow-y-visible [&::-webkit-scrollbar]:hidden">
+    <section className="h-[100dvh] flex flex-col justify-start md:justify-center px-6 md:px-10 pt-20 md:pt-16 pb-8 overflow-y-auto md:overflow-y-visible [&::-webkit-scrollbar]:hidden">
       <SectionAnimate index={1}>
         <motion.div variants={sectionItem}>
           <p className="text-xs font-semibold text-[#F9A8D4] dark:text-[#F0ABFC] tracking-widest uppercase mb-6">
